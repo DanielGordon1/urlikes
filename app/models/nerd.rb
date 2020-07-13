@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# User type model used for registration/sessions
 class Nerd < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
