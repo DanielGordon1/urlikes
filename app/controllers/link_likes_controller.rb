@@ -15,8 +15,7 @@ class LinkLikesController < ApplicationController
   end
 
   def destroy
-    @link = Link.find(params[:id])
-    @link_like = @link.link_likes.where(nerd_id: current_nerd.id).first
+    @link_like = link.link_likes.where(nerd_id: current_nerd.id).first
     respond_to do |format|
       if @link_like.destroy
         @current_liked_links = current_nerd.liked_links
@@ -30,6 +29,6 @@ class LinkLikesController < ApplicationController
   private
 
   def link
-    @link ||= Link.find(params[:link_id]) || Link.find(params[:id])
+    @link ||= Link.find(params[:link_id] || params[:id])
   end
 end
