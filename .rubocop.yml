@@ -1,0 +1,17 @@
+Style/Encoding:
+  Enabled: false
+Metrics/BlockLength:
+  Exclude:
+    - spec/**/*.rb
+AllCops:
+  Exclude:
+    - 'config/**/*.rb'
+    - 'bin/**'
+    - 'app/**/application**.rb'
+    - 'db/**/*.rb'
+    - 'spec/**helper.rb'
+    - 'spec/factories/**'
+    - 'app/channels/**/*.rb'
+    - 'Gemfile'
+    - 'Rakefile'
+    - 'config.ru'
