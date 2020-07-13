@@ -19,6 +19,7 @@ RSpec.describe Link, type: :model do
     it { should validate_uniqueness_of(:title) }
     it { should validate_uniqueness_of(:url) }
 
+    it { should belong_to(:nerd) }
     it { should have_many(:link_likes) }
     it { should have_many(:liking_nerds) }
   end

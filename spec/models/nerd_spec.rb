@@ -12,5 +12,6 @@ RSpec.describe Nerd, type: :model do
 
     it { should have_many(:link_likes) }
     it { should have_many(:liked_links) }
+    it { should have_many(:links) }
   end
 end
