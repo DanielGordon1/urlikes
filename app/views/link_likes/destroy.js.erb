@@ -1,0 +1,8 @@
+function updateDOM() {
+  const element = document.querySelector('[data-id="<%= @link.id %>"]')
+  element.innerHTML = '<%= j render "links/card-details", link: @link, current_liked_links: @current_liked_links %>'
+  flashes.innerHTML = "<%= j render 'shared/flashes' %>";
+}
+
+updateDOM()
+

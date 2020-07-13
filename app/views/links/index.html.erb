@@ -8,12 +8,8 @@
       <div class="col-4">
         <div class="card-product m-2">
           <img src="https://loremflickr.com/320/240/<%= link.title %>" />
-          <div class="card-product-infos">
-            <a href="<%= link.url %>">
-              <h2><%= link.title %></h2>
-            </a>
-            <p><%= link.like_count %></p>
-            <%= link_to '❤️', link_link_likes_path(link), method: :post, remote: true %>
+          <div data-id='<%= link.id %>'>
+            <%= render 'links/card-details', link: link, current_liked_links: @current_liked_links %>
           </div>
         </div>
       </div>

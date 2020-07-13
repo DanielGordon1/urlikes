@@ -1,0 +1,2 @@
+module LinkLikesHelper
+end

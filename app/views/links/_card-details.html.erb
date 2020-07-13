@@ -1,0 +1,12 @@
+<div class="card-product-infos">
+  <a href="<%= link.url %>">
+    <h2><%= link.title %></h2>
+  </a>
+  <p>
+    <% if (current_liked_links & [link]).any? %>
+      Likes: <%= link.like_count %> - <%= link_to '💔', link_like_path(link), method: :delete, remote: true %>
+    <% else %>
+       Likes: <%= link.like_count %> - <%= link_to '❤️', link_link_likes_path(link), method: :post, remote: true %>
+    <% end %>
+  </p>
+</div>
