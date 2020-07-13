@@ -11,11 +11,16 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <% if nerd_signed_in? %>
-        <li class="nav-item active">
-          <%= link_to "Home", "#", class: "nav-link" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "Messages", "#", class: "nav-link" %>
+        <li class="nav-item dropdown">
+          <div class="row">
+            <div class="col-12">
+              <%= simple_form_for(@link, html: { class: "form form-inline justify-content-between mr-5"}) do |f| %>
+                <%= f.input :url, class: 'flex-grow' %>
+                <%= f.input :title, class: 'flex-grow' %>
+                <%= f.submit "Submit", class: 'btn btn-primary mx-4' %>
+              <% end %>
+            </div>
+          </div>
         </li>
         <li class="nav-item dropdown">
           <%= image_tag current_nerd.avatar_url ? current_nerd.avatar_url : 'https://kitt.lewagon.com/placeholder/users/DanielGordon1', class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
