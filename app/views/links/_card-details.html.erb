@@ -10,5 +10,8 @@
          Likes: <%= link.like_count %> - <%= link_to '❤️', link_link_likes_path(link), method: :post, remote: true, class: 'heart-icon' %>
       <% end %>
     </p>
+    <% if link.nerd == current_nerd %>
+      <p class="flex-end" style="font-size: 2rem"><%= link_to '␡', link_path(link), method: :delete, data: { confirm: "Are you sure ?" } %></p>
+    <% end %>
   <% end %>
 </div>

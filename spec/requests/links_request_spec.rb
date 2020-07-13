@@ -4,6 +4,7 @@ require 'rails_helper'
 
 RSpec.describe 'Links', type: :request do
   let(:nerd) { create(:nerd) }
+  let(:link) { create(:link) }
   let(:link_params) do
     { link: { title: 'some random post', url: 'https://www.check-out-this.com' } }
   end
@@ -23,6 +24,18 @@ RSpec.describe 'Links', type: :request do
       post('/links', params: link_params)
       expect(response.status).to eq(302)
       expect(Link.count).to eq(1)
+    end
+  end
+
+  describe 'DELETE #destroy' do
+    it 'deletes a link succesfully' do
+      link
+      expect(Link.count).to eq(1)
+
+      login_as(nerd)
+      delete("/links/#{link.id}")
+
+      expect(Link.count).to eq(0)
     end
   end
 end
