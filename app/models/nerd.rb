@@ -24,8 +24,4 @@ class Nerd < ApplicationRecord
       "default_pass#{rand(1..200)}"
     end
   end
-
-  def avatar_url
-    return 'https://kitt.lewagon.com/placeholder/users/DanielGordon1' unless super
-  end
 end
