@@ -7,4 +7,6 @@ class Nerd < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   validates :email, presence: true, uniqueness: true
+  has_many :link_likes
+  has_many :liked_links, through: :link_likes, source: :link
 end
