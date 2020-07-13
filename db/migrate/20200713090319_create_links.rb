@@ -3,6 +3,7 @@ class CreateLinks < ActiveRecord::Migration[6.0]
     create_table :links do |t|
       t.string :url, null: false
       t.string :title, null: false
+      t.references :nerd, null: false, foreign_key: true
 
       t.timestamps
     end

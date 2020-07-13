@@ -9,6 +9,7 @@ class Nerd < ApplicationRecord
          :omniauthable, omniauth_providers: [:google_oauth2]
   has_many :link_likes, dependent: :destroy
   has_many :liked_links, through: :link_likes, source: :link
+  has_many :links, dependent: :destroy
 
   validates :email, presence: true, uniqueness: true
 

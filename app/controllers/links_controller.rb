@@ -11,6 +11,7 @@ class LinksController < ApplicationController
 
   def create
     @link = Link.new(link_params)
+    @link.nerd = current_nerd
     if @link.save
       redirect_to root_path
     else

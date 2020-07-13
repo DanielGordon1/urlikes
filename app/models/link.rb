@@ -4,6 +4,7 @@
 class Link < ApplicationRecord
   has_many :link_likes, dependent: :destroy
   has_many :liking_nerds, through: :link_likes, source: :nerd
+  belongs_to :nerd
 
   validates :title, presence: true, uniqueness: true
   validates :url, presence: true, uniqueness: true, format: { with: URI::DEFAULT_PARSER.make_regexp }

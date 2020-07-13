@@ -27,8 +27,10 @@ ActiveRecord::Schema.define(version: 2020_07_13_101604) do
   create_table "links", force: :cascade do |t|
     t.string "url", null: false
     t.string "title", null: false
+    t.bigint "nerd_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["nerd_id"], name: "index_links_on_nerd_id"
     t.index ["title"], name: "index_links_on_title", unique: true
   end
 
@@ -49,4 +51,5 @@ ActiveRecord::Schema.define(version: 2020_07_13_101604) do
 
   add_foreign_key "link_likes", "links"
   add_foreign_key "link_likes", "nerds"
+  add_foreign_key "links", "nerds"
 end
