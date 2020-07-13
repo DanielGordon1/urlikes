@@ -30,3 +30,12 @@
 .card-product .card-product-infos {
   padding: 16px;
 }
+
+a.heart-icon {
+  animation: fadein 2s;
+}
+
+@keyframes fadein {
+  from { opacity: 0}
+  to   { opacity: 1}
+}
