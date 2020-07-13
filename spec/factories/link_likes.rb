@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :link_like do
-    nerd { nil }
-    link { nil }
+    nerd { association(:nerd) }
+    link { association(:link) }
   end
 end
