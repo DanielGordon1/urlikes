@@ -7,7 +7,7 @@ class Nerd < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
          :omniauthable, omniauth_providers: [:google_oauth2]
-  has_many :link_likes
+  has_many :link_likes, dependent: :destroy
   has_many :liked_links, through: :link_likes, source: :link
 
   validates :email, presence: true, uniqueness: true
