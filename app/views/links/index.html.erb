@@ -13,6 +13,7 @@
               <h2><%= link.title %></h2>
             </a>
             <p><%= link.like_count %></p>
+            <%= link_to '❤️', link_link_likes_path(link), method: :post, remote: true %>
           </div>
         </div>
       </div>
