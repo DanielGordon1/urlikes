@@ -3,6 +3,6 @@
 # Controller that handles the link objects
 class LinksController < ApplicationController
   def index
-    @links = Url.group_by_day(:created_at).order(:like_count)
+    @links_per_day = Link.sorted_by_votes.group_by { |link| link.created_at.day }
   end
 end
