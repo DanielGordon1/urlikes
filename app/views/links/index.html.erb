@@ -1,0 +1,11 @@
+
+<div>
+  <% @links_per_day.each do |day, links| %>
+  <ul>
+    <% links.each do |link| %>
+      <li><%= link.title %> - <%= link.url %></li>
+    <% end %>
+  </ul>
+  <% end %>
+</div>
+
