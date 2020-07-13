@@ -8,7 +8,7 @@ class Link < ApplicationRecord
   validates :title, presence: true, uniqueness: true
   validates :url, presence: true, uniqueness: true, format: { with: URI::DEFAULT_PARSER.make_regexp }
 
-  scope :sorted_by_votes, -> { joins(:link_likes).order('COUNT(link_likes.id)').group('links.id') }
+  scope :sorted_by_votes, -> { joins(:link_likes).order('COUNT(link_likes.id) DESC').group('links.id') }
 
   def like_count
     link_likes.count
