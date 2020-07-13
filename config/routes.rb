@@ -1,4 +1,4 @@
 Rails.application.routes.draw do
-  devise_for :nerds
   root to: "links#index"
+  devise_for :nerds, controllers: { omniauth_callbacks: 'nerds/omniauth_callbacks' }
 end
