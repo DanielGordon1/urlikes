@@ -1,5 +1,11 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe Nerd, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe 'valid records' do
+    it 'has a valid factory' do
+      expect(build(:nerd)).to be_valid
+    end
+  end
 end
