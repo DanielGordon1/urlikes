@@ -12,7 +12,20 @@ class Nerd < ApplicationRecord
 
   validates :email, presence: true, uniqueness: true
 
-  def self.from_google(email:, full_name:, uid:, avatar_url:)
-    create_with(uid: uid, full_name: full_name, avatar_url: avatar_url).find_or_create_by!(email: email)
+  class << self
+    def from_google(email:, full_name:, uid:, avatar_url:)
+      create_with(uid: uid, full_name: full_name, avatar_url: avatar_url, password: default_password)
+        .find_or_create_by!(email: email)
+    end
+
+    private
+
+    def default_password
+      "default_pass#{rand(1..200)}"
+    end
+  end
+
+  def avatar_url
+    return 'https://kitt.lewagon.com/placeholder/users/DanielGordon1' unless super
   end
 end
