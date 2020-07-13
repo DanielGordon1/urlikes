@@ -7,22 +7,20 @@ class LinkLikesController < ApplicationController
     respond_to do |format|
       if @link_like.save
         @current_liked_links = current_nerd.liked_links
-        format.js { flash.now[:notice] = '✅' }
+        format.js { flash.now[:notice] = 'Liked ✅' }
       else
-        format.js { flash.now[:alert] = '⛔️' }
+        format.js { flash.now[:alert] = 'Something went wrong ⛔️' }
       end
     end
   end
 
   def destroy
     @link = Link.find(params[:id])
-    @link_like = @link.link_likes
-                      .where(nerd_id: current_nerd.id)
-                      .first
+    @link_like = @link.link_likes.where(nerd_id: current_nerd.id).first
     respond_to do |format|
       if @link_like.destroy
         @current_liked_links = current_nerd.liked_links
-        format.js { flash.now[:notice] = 'Deleted ✅' }
+        format.js { flash.now[:notice] = 'Unliked ✅' }
       else
         format.js { flash.now[:alert] = 'Something went wrong ⛔️' }
       end
