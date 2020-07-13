@@ -75,6 +75,7 @@ GEM
       responders
       warden (~> 1.2.3)
     diff-lcs (1.4.4)
+    dotenv (2.7.6)
     erubi (1.9.0)
     execjs (2.7.0)
     factory_bot (6.1.0)
@@ -276,6 +277,7 @@ DEPENDENCIES
   bootsnap (>= 1.4.2)
   byebug
   devise
+  dotenv
   factory_bot_rails
   faker
   font-awesome-sass (~> 5.6.1)
