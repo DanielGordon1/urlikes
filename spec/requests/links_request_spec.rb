@@ -7,7 +7,7 @@ RSpec.describe 'Links', type: :request do
   let(:link_params) do
     { link: { title: 'some random post', url: 'https://www.check-out-this.com' } }
   end
-  describe '#index' do
+  describe 'GET #index' do
     it 'returns a valid status code' do
       login_as(nerd)
       get root_path
@@ -15,7 +15,7 @@ RSpec.describe 'Links', type: :request do
     end
   end
 
-  describe '#create' do
+  describe 'POST #create' do
     it 'returns a valid status code and creates a link' do
       expect(Link.count).to eq(0)
       login_as(nerd)
