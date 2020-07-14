@@ -33,8 +33,5 @@ RSpec.describe Nerd, type: :model do
       expect(nerd.persisted?).to eq(true)
       expect(Nerd.first).to eq(nerd)
     end
-
-    it 'should enrich a user with google data when an email is already in use' do
-    end
   end
 end
